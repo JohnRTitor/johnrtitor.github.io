@@ -23,15 +23,10 @@ concurrency:
 
 jobs:
   build:
-    defaults:
-      run:
-        working-directory: ./nextjs-app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          repository: johnrtitor/johnrtitor-portfolio-website
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -43,7 +38,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
